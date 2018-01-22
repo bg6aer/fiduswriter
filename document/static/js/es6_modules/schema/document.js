@@ -340,6 +340,31 @@ let comment = {
         }]
     }
 }
+let rdf_property = {
+    attrs: {
+        annotation: {},
+        annotationType:{}
+    },
+    inclusive: false,
+    excludes: "",
+    group: "annotation",
+    parseDOM: [{
+        tag: "*.rdf",
+        getAttrs(dom) {
+            return {
+                annotation: parseInt(dom.getAttribute("annotation")),
+                annotationType: dom.getAttribute("annotationType")
+            }
+        }
+    }],
+    toDOM(node) {
+        let dict={
+            class: 'rdf'
+        }
+        dict[""+node.attrs.annotationType]=node.attrs.annotation
+        return ['span', dict ]
+    }
+}
 
 let doc = {
     content: "article", // Transformations don't work well on the top most element
@@ -377,6 +402,7 @@ let spec = {
         link: marks.link,
         code: marks.code,
         comment,
+        rdf_property,
         anchor
     })
 }

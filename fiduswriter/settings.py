@@ -203,6 +203,7 @@ INSTALLED_APPS = (
     'compressor',
     'feedback',
     'style',
+    'htmlrdfa-exporter',
     # If you want to enable one or several of the social network login options
     # below, make sure you add the authorization keys at:
     # http://SERVER.COM/admin/socialaccount/socialapp/
