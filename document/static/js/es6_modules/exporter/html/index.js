@@ -16,6 +16,8 @@ export class HTMLExporter extends BaseHTMLExporter{
         this.bibDB = bibDB
         this.imageDB = imageDB
         this.exportOne()
+
+
     }
 
     exportOne() {
