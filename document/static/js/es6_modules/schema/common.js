@@ -71,6 +71,7 @@ export let figure = {
         image: {default: false},
         figureCategory: {default: ""},
         caption: {default: ""},
+        content_type: {default: ""},
         id: {default: false}
     },
     parseDOM: [{
@@ -82,7 +83,9 @@ export let figure = {
                 image: isNaN(image) ? false : image,
                 figureCategory: dom.getAttribute('data-figure-category'),
                 caption: dom.getAttribute('data-caption'),
-                id: dom.getAttribute('id')
+                content_type: dom.getAttribute('content_type'),
+                id: dom.getAttribute('id'),
+
             }
         }
     }],
@@ -93,6 +96,7 @@ export let figure = {
         dom.setAttribute('data-figure-category', node.attrs.figureCategory)
         dom.setAttribute('data-caption', node.attrs.caption)
         dom.setAttribute('id', node.attrs.id)
+        dom.setAttribute('content_type', node.attrs.content_type)
         if (node.attrs.image !== false) {
             dom.appendChild(document.createElement("div"))
             if (node.type.schema.cached.imageDB) {
